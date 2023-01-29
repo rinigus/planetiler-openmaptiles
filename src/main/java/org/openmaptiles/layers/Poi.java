@@ -156,8 +156,8 @@ public class Poi implements
       }
     }
 
-    // Parcel locker without name: use either brand or operator and add ref if present
-    if ("parcel_locker".equals(rawSubclass) && nullOrEmpty(name)) {
+    // Parcel locker, fuel or charging station without name: use either brand or operator and add ref if present
+    if (List.of("parcel_locker", "fuel", "charging_station").contains(rawSubclass) && nullOrEmpty(name)) {
       name = coalesce(nullIfEmpty(element.brand()), nullIfEmpty(element.operator()));
       String ref = nullIfEmpty(element.ref());
       if (ref != null) {
