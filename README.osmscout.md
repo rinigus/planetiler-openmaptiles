@@ -9,4 +9,10 @@ git add src/main/java/org/openmaptiles/generated/Tables.java src/main/java/org/o
 git commit -m "Update generated tables"
 ```
 
+Import map data:
+
+```
+./mvnw -DskipTests clean package
+java -jar target/*with-deps.jar --force --download --area=estonia
+```
 
